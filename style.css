@@ -13,51 +13,55 @@ body {
   justify-content: center;
 
   background: 
-    linear-gradient(rgba(30, 60, 114, 0.75), rgba(42, 82, 152, 0.85)),
+    linear-gradient(rgba(20, 40, 100, 0.8), rgba(30, 60, 120, 0.9)),
     url("https://image-static.collegedunia.com/public/college_data/images/campusimage/1741851310Academic-Block-Entire-View-2-1024x683.jpg");
 
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }
 
-/* TOP TEXT */
+/* TOP */
 .top-text {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.top-text h1 {
+.bold-title {
   font-size: 60px;
-  font-family: "Times New Roman", serif;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+/* TAGLINE */
+.tagline-box {
+  display: inline-block;
+  background: linear-gradient(45deg, #ffd700, #ffb300);
+  padding: 8px 20px;
+  border-radius: 25px;
+  margin-top: 10px;
+  box-shadow: 0 0 15px rgba(255, 200, 0, 0.6);
+}
+
+.tagline-box p {
+  font-weight: bold;
   color: black;
 }
 
-.top-text p {
-  font-size: 28px;
-  font-family: cursive;
-  color: black;
-}
-
-/* FORM BOX */
+/* FORM */
 .container {
   width: 500px;
   padding: 25px;
-
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(12px);
-
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(15px);
   border-radius: 20px;
-  border: 2px solid rgba(255,255,255,0.4);
-
-  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
 /* TITLE */
 .gradient-text {
   text-align: center;
   font-size: 26px;
-
   background: linear-gradient(90deg, #36f8f8, #ffffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -65,8 +69,8 @@ body {
 
 .sub-text {
   text-align: center;
-  margin-bottom: 10px;
-  color: black;
+  margin-bottom: 15px;
+  color: white;
 }
 
 /* GRID */
@@ -74,41 +78,42 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-/* INPUT */
-input {
+/* INPUT + SELECT */
+input, select {
   width: 100%;
   padding: 10px;
   border-radius: 10px;
   border: 1px solid rgba(255,255,255,0.5);
-  background: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.25);
   transition: 0.3s;
 }
 
-/* HOVER */
-input:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 10px rgba(0,0,255,0.3);
-}
-
 /* FOCUS */
-input:focus {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(0,0,255,0.5);
+input:focus, select:focus {
+  border: 1px solid #00c3ff;
+  box-shadow: 0 0 10px #00c3ff;
   outline: none;
 }
 
 /* ERROR TEXT */
 .error {
-  color: red;
+  color: #ff4d4d;
   font-size: 12px;
-  margin-top: 3px;
-  display: block;
 }
 
-/* PASSWORD BOX */
+/* VALID / INVALID */
+input.valid, select.valid {
+  border: 1px solid #00ff88;
+}
+
+input.invalid, select.invalid {
+  border: 1px solid red;
+}
+
+/* PASSWORD */
 .pass-box {
   position: relative;
 }
@@ -136,21 +141,22 @@ input:focus {
   background: rgba(255,255,255,0.3);
   padding: 8px 12px;
   border-radius: 10px;
-  cursor: pointer;
 }
 
 /* BUTTON */
 button {
   width: 100%;
   padding: 12px;
-  background: #4b6cff;
+  background: linear-gradient(45deg, #4b6cff, #00c3ff);
   color: white;
   border: none;
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover {
-  background: #2f4cff;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00c3ff;
 }

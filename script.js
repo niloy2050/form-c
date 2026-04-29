@@ -8,21 +8,20 @@ function clearErrors() {
   document.querySelectorAll(".error").forEach(e => e.innerText = "");
 }
 
-// 👁 PASSWORD TOGGLE
 function togglePass(id) {
   const input = document.getElementById(id);
   input.type = input.type === "password" ? "text" : "password";
 }
 
-// 🚫 BLOCK FUTURE DATE
+// BLOCK FUTURE DATE
 document.getElementById("dob").max = new Date().toISOString().split("T")[0];
 
-// 🎯 AUTO AGE
+// AUTO AGE
 const dobInput = document.getElementById("dob");
 const ageInput = document.getElementById("age");
 
-dobInput.addEventListener("change", function () {
-  const dob = new Date(this.value);
+dobInput.addEventListener("change", () => {
+  const dob = new Date(dobInput.value);
   const today = new Date();
 
   if (dob > today) {
@@ -47,74 +46,87 @@ dobInput.addEventListener("change", function () {
   }
 });
 
-// ⚡ LIVE VALIDATION
-document.querySelectorAll("input").forEach(input => {
-  input.addEventListener("input", function () {
+// LIVE VALIDATION
+document.querySelectorAll("input, select").forEach(el => {
+  el.addEventListener("input", function () {
 
-    if (this.id === "name") {
-      if (!/^[A-Za-z ]*$/.test(this.value)) {
-        setError("nameError", "Only letters allowed");
-      } else {
-        setError("nameError", "");
-      }
+    this.classList.remove("valid", "invalid");
+
+    if (this.value) {
+      this.classList.add("valid");
     }
 
-    if (this.id === "username") {
-      if (!/^[A-Za-z0-9]*$/.test(this.value)) {
-        setError("userError", "Only letters & numbers");
-      } else {
-        setError("userError", "");
-      }
+    if (this.id === "name" && !/^[A-Za-z ]*$/.test(this.value)) {
+      setError("nameError", "Only letters allowed");
+      this.classList.add("invalid");
     }
 
-    if (this.id === "email") {
-      if (this.value && !/^\S+@\S+\.\S+$/.test(this.value)) {
-        setError("emailError", "Invalid email");
-      } else {
-        setError("emailError", "");
-      }
+    if (this.id === "username" && !/^[A-Za-z0-9]*$/.test(this.value)) {
+      setError("userError", "Only letters & numbers");
+      this.classList.add("invalid");
     }
 
-    if (this.id === "contact") {
-      if (this.value && !/^\+[1-9]\d{9,14}$/.test(this.value)) {
-        setError("contactError", "Use +91XXXXXXXXXX");
-      } else {
-        setError("contactError", "");
-      }
+    if (this.id === "email" && this.value && !/^\S+@\S+\.\S+$/.test(this.value)) {
+      setError("emailError", "Invalid email");
+      this.classList.add("invalid");
     }
 
-    if (this.id === "password") {
-      if (this.value && !/^(?=.*[A-Z])(?=.*[a-z])(?=.*[@+\-]).{6,}$/.test(this.value)) {
-        setError("passError", "Weak password");
-      } else {
-        setError("passError", "");
-      }
-    }
-
-    if (this.id === "confirmPassword") {
-      const pass = document.getElementById("password").value;
-      if (this.value && this.value !== pass) {
-        setError("confirmError", "Not matching");
-      } else {
-        setError("confirmError", "");
-      }
+    if (this.id === "contact" && this.value && !/^\d{10}$/.test(this.value)) {
+      setError("contactError", "Enter 10 digit number");
+      this.classList.add("invalid");
     }
 
   });
 });
 
-// 🚀 SUBMIT
+// SUBMIT
 form.addEventListener("submit", function(e) {
   e.preventDefault();
   clearErrors();
 
+  const country = document.getElementById("country");
+  const code = document.getElementById("code");
+  const phone = document.getElementById("contact").value.trim();
+  const password = document.getElementById("password").value;
+  const confirm = document.getElementById("confirmPassword").value;
   const gender = document.querySelector('input[name="g"]:checked');
+
+  let valid = true;
+
+  if (!country.value) {
+    setError("countryError", "Select country");
+    country.classList.add("invalid");
+    valid = false;
+  }
+
+  if (!code.value) {
+    setError("contactError", "Select code");
+    code.classList.add("invalid");
+    valid = false;
+  }
+
+  if (!/^\d{10}$/.test(phone)) {
+    setError("contactError", "Invalid phone number");
+    valid = false;
+  }
+
+  if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*[@+\-]).{6,}$/.test(password)) {
+    setError("passError", "Weak password");
+    valid = false;
+  }
+
+  if (password !== confirm) {
+    setError("confirmError", "Passwords not match");
+    valid = false;
+  }
 
   if (!gender) {
     setError("genderError", "Select gender");
-    return;
+    valid = false;
   }
 
-  alert("Form submitted successfully 🚀");
-  form.reset();
+  if (valid) {
+    alert("Form Submitted Successfully 🚀");
+    form.reset();
+  }
 });
