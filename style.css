@@ -1,7 +1,3 @@
-:root {
-  --main: #4b6cff;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -12,32 +8,68 @@
 body {
   height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  overflow: hidden;
+  justify-content: center;
+
+  background: 
+    linear-gradient(rgba(30, 60, 114, 0.75), rgba(42, 82, 152, 0.85)),
+    url("https://image-static.collegedunia.com/public/college_data/images/campusimage/1741851310Academic-Block-Entire-View-2-1024x683.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.container {
-  width: 600px;
-  background: white;
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-}
-
-.hero {
+/* TOP TEXT */
+.top-text {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-/* GRADIENT TEXT */
+.top-text h1 {
+  font-size: 60px;
+  font-family: "Times New Roman", serif;
+  color: black;
+}
+
+.top-text p {
+  font-size: 28px;
+  font-family: cursive;
+  color: black;
+}
+
+/* FORM BOX */
+.container {
+  width: 500px;
+  padding: 25px;
+
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(12px);
+
+  border-radius: 20px;
+  border: 2px solid rgba(255,255,255,0.4);
+
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+}
+
+/* TITLE */
 .gradient-text {
-  background: linear-gradient(90deg, #ff7e5f, #4b6cff);
+  text-align: center;
+  font-size: 26px;
+
+  background: linear-gradient(90deg, #36f8f8, #ffffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+.sub-text {
+  text-align: center;
+  margin-bottom: 10px;
+  color: black;
+}
+
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -45,34 +77,52 @@ body {
   margin-bottom: 10px;
 }
 
-/* INPUT STYLE */
+/* INPUT */
 input {
+  width: 100%;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #ccc;
-  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.3);
+  transition: 0.3s;
 }
 
-/* HOVER EFFECT */
+/* HOVER */
 input:hover {
-  border-color: var(--main);
-  box-shadow: 0 0 12px rgba(75,108,255,0.25);
   transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(0,0,255,0.3);
 }
 
-/* GLOW ANIMATION */
-@keyframes glow {
-  0% { box-shadow: 0 0 5px rgba(75,108,255,0.2); }
-  50% { box-shadow: 0 0 20px rgba(75,108,255,0.5); }
-  100% { box-shadow: 0 0 5px rgba(75,108,255,0.2); }
-}
-
-/* FOCUS EFFECT */
+/* FOCUS */
 input:focus {
-  border-color: var(--main);
-  transform: scale(1.04);
-  animation: glow 1.5s infinite;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0,0,255,0.5);
   outline: none;
+}
+
+/* ERROR TEXT */
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 3px;
+  display: block;
+}
+
+/* PASSWORD BOX */
+.pass-box {
+  position: relative;
+}
+
+.pass-box input {
+  padding-right: 35px;
+}
+
+.eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
 
 /* GENDER */
@@ -83,38 +133,24 @@ input:focus {
 }
 
 .gender label {
-  background: rgba(75,108,255,0.1);
-  padding: 8px 15px;
+  background: rgba(255,255,255,0.3);
+  padding: 8px 12px;
   border-radius: 10px;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.gender label:hover {
-  background: var(--main);
-  color: white;
 }
 
 /* BUTTON */
 button {
   width: 100%;
   padding: 12px;
-  background: var(--main);
+  background: #4b6cff;
   color: white;
   border: none;
   border-radius: 10px;
-  cursor: pointer;
   font-weight: bold;
-  transition: 0.3s;
+  cursor: pointer;
 }
 
 button:hover {
-  transform: translateY(-2px);
   background: #2f4cff;
-}
-
-/* STATUS */
-#status {
-  margin-top: 10px;
-  text-align: center;
 }

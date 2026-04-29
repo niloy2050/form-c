@@ -3,49 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pro Form</title>
+<title>GCF Form</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<div class="container">
 
-    <div class="hero">
-        <h1 class="gradient-text">GCF Detail Form</h1>
-        <p>Please fill in your details carefully and accurately </p>
-    </div>
+<div class="top-text">
+    <h1>Parul University</h1>
+    <p>yahan possible hai</p>
+</div>
+
+<div class="container">
+    <h2 class="gradient-text">GCF Detail Form</h2>
+    <p class="sub-text">Please fill in your details carefully and accurately.</p>
 
     <form id="form">
+
         <div class="grid">
-            <input type="text" id="name" placeholder="Full Name">
-            <input type="text" id="username" placeholder="Username (letters & numbers)">
+            <div>
+                <input type="text" id="name" placeholder="Full Name">
+                <small class="error" id="nameError"></small>
+            </div>
+            <div>
+                <input type="text" id="username" placeholder="Username">
+                <small class="error" id="userError"></small>
+            </div>
         </div>
 
         <div class="grid">
-            <input type="date" id="dob">
-            <input type="number" id="age" placeholder="Age">
+            <div>
+                <input type="date" id="dob">
+                <small class="error" id="dobError"></small>
+            </div>
+            <div>
+                <input type="number" id="age" placeholder="Age" readonly>
+                <small class="error" id="ageError"></small>
+            </div>
         </div>
 
         <div class="grid">
-            <input type="email" id="email" placeholder="Email">
-            <input type="tel" id="contact" placeholder="Contact Number">
+            <div>
+                <input type="email" id="email" placeholder="Email">
+                <small class="error" id="emailError"></small>
+            </div>
+            <div>
+                <input type="tel" id="contact" placeholder="+91XXXXXXXXXX">
+                <small class="error" id="contactError"></small>
+            </div>
         </div>
 
         <div class="gender">
-            <label><input type="radio" name="gender" value="Male"> Male</label>
-            <label><input type="radio" name="gender" value="Female"> Female</label>
-            <label><input type="radio" name="gender" value="Other"> Other</label>
+            <label><input type="radio" name="g"> Male</label>
+            <label><input type="radio" name="g"> Female</label>
+            <label><input type="radio" name="g"> Other</label>
         </div>
+        <small class="error" id="genderError"></small>
 
         <div class="grid">
-            <input type="password" id="password" placeholder="Password">
-            <input type="password" id="confirmPassword" placeholder="Confirm Password">
+            <div class="pass-box">
+                <input type="password" id="password" placeholder="Password">
+                <span class="eye" onclick="togglePass('password')">👁</span>
+                <small class="error" id="passError"></small>
+            </div>
+
+            <div class="pass-box">
+                <input type="password" id="confirmPassword" placeholder="Confirm Password">
+                <span class="eye" onclick="togglePass('confirmPassword')">👁</span>
+                <small class="error" id="confirmError"></small>
+            </div>
         </div>
 
-        <button type="submit">Submit</button>
-        <p id="status"></p>
+        <button>Submit</button>
     </form>
-
 </div>
 
 <script src="script.js"></script>
