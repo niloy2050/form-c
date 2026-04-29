@@ -1,0 +1,120 @@
+:root {
+  --main: #4b6cff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  overflow: hidden;
+}
+
+.container {
+  width: 600px;
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* GRADIENT TEXT */
+.gradient-text {
+  background: linear-gradient(90deg, #ff7e5f, #4b6cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* INPUT STYLE */
+input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT */
+input:hover {
+  border-color: var(--main);
+  box-shadow: 0 0 12px rgba(75,108,255,0.25);
+  transform: translateY(-2px);
+}
+
+/* GLOW ANIMATION */
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(75,108,255,0.2); }
+  50% { box-shadow: 0 0 20px rgba(75,108,255,0.5); }
+  100% { box-shadow: 0 0 5px rgba(75,108,255,0.2); }
+}
+
+/* FOCUS EFFECT */
+input:focus {
+  border-color: var(--main);
+  transform: scale(1.04);
+  animation: glow 1.5s infinite;
+  outline: none;
+}
+
+/* GENDER */
+.gender {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.gender label {
+  background: rgba(75,108,255,0.1);
+  padding: 8px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gender label:hover {
+  background: var(--main);
+  color: white;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  background: var(--main);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  background: #2f4cff;
+}
+
+/* STATUS */
+#status {
+  margin-top: 10px;
+  text-align: center;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro Form</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="container">
+
+    <div class="hero">
+        <h1 class="gradient-text">GCF Detail Form</h1>
+        <p>Please fill in your details carefully and accurately </p>
+    </div>
+
+    <form id="form">
+        <div class="grid">
+            <input type="text" id="name" placeholder="Full Name">
+            <input type="text" id="username" placeholder="Username (letters & numbers)">
+        </div>
+
+        <div class="grid">
+            <input type="date" id="dob">
+            <input type="number" id="age" placeholder="Age">
+        </div>
+
+        <div class="grid">
+            <input type="email" id="email" placeholder="Email">
+            <input type="tel" id="contact" placeholder="Contact Number">
+        </div>
+
+        <div class="gender">
+            <label><input type="radio" name="gender" value="Male"> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+            <label><input type="radio" name="gender" value="Other"> Other</label>
+        </div>
+
+        <div class="grid">
+            <input type="password" id="password" placeholder="Password">
+            <input type="password" id="confirmPassword" placeholder="Confirm Password">
+        </div>
+
+        <button type="submit">Submit</button>
+        <p id="status"></p>
+    </form>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
